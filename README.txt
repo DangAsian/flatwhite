@@ -13,3 +13,8 @@ ALTER USER flatwhite_user CREATEDB;
 ALTER USER flatwhite_user SUPERUSER;
 
 GRANT ALL PRIVILEGES ON DATABASE flatwhite TO flatwhite_user;
+
+
+Authentication
+Checklist (cross reference with sequelize)
+[] Add auth router

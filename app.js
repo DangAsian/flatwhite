@@ -21,7 +21,7 @@ var app = express();
 // @route: 'https://localhost:5000/'
 // @description: test
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("Hello World 🐷");
 });
 
 // Listen to see if the application has succesffuly connected to the port
