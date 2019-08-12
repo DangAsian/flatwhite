@@ -1,4 +1,3 @@
-
 // Set up the postgresql database
 
 createdb flatwhite
@@ -14,7 +13,6 @@ ALTER USER flatwhite_user SUPERUSER;
 
 GRANT ALL PRIVILEGES ON DATABASE flatwhite TO flatwhite_user;
 
-
 Authentication
 Checklist (cross reference with sequelize)
-[] Add auth router
+[✔️] Add auth router

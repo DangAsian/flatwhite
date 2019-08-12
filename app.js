@@ -24,6 +24,9 @@ app.get("/", (req, res) => {
   res.send("Hello World 🐷");
 });
 
+// Routes
+app.use("/api/users", require("./routes/api/users"));
+
 // Listen to see if the application has succesffuly connected to the port
 app.listen(process.env.PORT, () => {
   console.log(`app is on port ${process.env.PORT}`);
