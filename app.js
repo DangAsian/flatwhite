@@ -15,6 +15,9 @@ db.authenticate()
     console.error("Unable to connect to ☕ database", err);
   });
 
+// @route: 'https://localhost:5000/'
+// @description: test
+
 // point app to the express instance
 var app = express();
 
