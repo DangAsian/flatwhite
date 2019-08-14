@@ -7,6 +7,23 @@ const db = require("../../config/database");
 const User = db.import("../../models/user");
 const passport = require("passport");
 
+// @route   GET api/auth/
+// @desc    Test route
+// @access  Public
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      // console.log(req.user.id);
+      const user = await User.findByPk(req.user.id);
+      res.json(user);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send();
+    }
+  }
+);
 // @route   GET api/users/
 // @desc    Test route
 // @access  Public

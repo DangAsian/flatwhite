@@ -35,6 +35,7 @@ passport.use(
       .catch(err => console.log(err));
   })
 );
+
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
@@ -44,4 +45,27 @@ passport.deserializeUser((id, done) => {
     done(err, user);
   });
 });
+
+passport.use(
+  new JWTStrategy(
+    {
+      jwtFromRequest: ExtractJWT.fromHeader("authorization"),
+      secretOrKey: process.env.SECRET
+    },
+    async (payload, done) => {
+      try {
+        const user = await User.findByPk(payload.user.id);
+
+        if (!user) {
+          return done(null, false);
+        }
+
+        done(null, user);
+      } catch (err) {
+        done(error, false);
+      }
+    }
+  )
+);
+
 // };
