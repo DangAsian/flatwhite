@@ -27,7 +27,7 @@ app.use(express.json({ extended: false }));
 // Need Express Session Middleware?
 
 // Passport config
-require("./config/passport")(passport);
+require("./config/passport");
 // Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
