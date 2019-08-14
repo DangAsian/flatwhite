@@ -1,4 +1,5 @@
 const express = require("express");
+const passport = require("passport");
 
 // point app to the express instance
 var app = express();
@@ -22,6 +23,14 @@ db.authenticate()
 // Already part of Express now, don't need to install body parser
 app.use(express.json({ extended: false }));
 // app.use(cors());
+
+// Need Express Session Middleware?
+
+// Passport config
+require("./config/passport")(passport);
+// Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 // @route: 'https://localhost:5000/'
 // @description: test
